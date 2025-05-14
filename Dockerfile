@@ -19,17 +19,16 @@ RUN git clone https://github.com/luiselzate/luckycoin_1.8 ; \
     ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX ; \
     make install ; \
     cd $BITCOIN_ROOT ; \
-    ./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/" 
+    ./autogen.sh ; \
+    ./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/" ; \ 
     make
 
-RUN wget https://github.com/LuckyCoinProj/luckycoinV3/releases/download/v3.0.0/Node-v3.0.0-linux.zip -O /tmp/luckycoin.zip && \
-    unzip /tmp/luckycoin.zip -d /usr/local/bin && \
-    chmod +x /usr/local/bin/luckycoind /usr/local/bin/luckycoin-cli /usr/local/bin/luckycoin-tx && \
-    rm /tmp/luckycoin.zip
+RUN cp /root/luckycoin_1.8/src/luckycoind /usr/local/bin/luckycoind ; \ 
+    cp /root/luckycoin_1.8/src/luckycoin-cli /usr/local/bin/luckycoin-cli ; \ 
 
 RUN mkdir -p /root/.luckycoin
 COPY luckycoin.conf /root/.luckycoin/luckycoin.conf
 
-EXPOSE 22555
+EXPOSE 9917
 
 CMD ["luckycoind", "-conf=/root/.luckycoin/luckycoin.conf", "-datadir=/root/.luckycoin"]
