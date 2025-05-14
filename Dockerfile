@@ -23,10 +23,10 @@ RUN git clone https://github.com/luiselzate/luckycoin_1.8 ; \
     ./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/" ; \ 
     make
 
-RUN cp /root/luckycoin_1.8/src/luckycoind /usr/local/bin/luckycoind ; \ 
-    cp /root/luckycoin_1.8/src/luckycoin-cli /usr/local/bin/luckycoin-cli ; \ 
-    cp /root/luckycoin_1.8/src/dogecoind /usr/local/bin/luckycoind ; \ 
-    cp /root/luckycoin_1.8/src/dogecoin-cli /usr/local/bin/luckycoin-cli ; \ 
+RUN cp $BITCOIN_ROOT/src/luckycoind /usr/local/bin/luckycoind ; \ 
+    cp $BITCOIN_ROOT/src/luckycoin-cli /usr/local/bin/luckycoin-cli ; \ 
+    cp $BITCOIN_ROOT/src/dogecoind /usr/local/bin/luckycoind ; \ 
+    cp $BITCOIN_ROOT/src/dogecoin-cli /usr/local/bin/luckycoin-cli ; \ 
 
 RUN mkdir -p /root/.luckycoin
 COPY luckycoin.conf /root/.luckycoin/luckycoin.conf
