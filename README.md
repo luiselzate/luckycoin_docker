@@ -2,10 +2,9 @@
 
 ## Prerequisites Docker
 1. Use ubuntu 14 linux or a similar distribution
-2. Install luckycoin node and have it fully synced (recommended way is [run a luckycoin node inside a docker container](https://github.com/toregua/luckycoin-node))
-3. Install docker and docker-compose (Ubuntu)[https://docs.docker.com/engine/install/ubuntu/]
-4. Clone this repository using git clone
-5. Navigate inside the cloned repository folder (luckycoin-node)
+2. Install docker and docker-compose (Ubuntu)[https://docs.docker.com/engine/install/ubuntu/]
+3. Clone this repository using git clone
+4. Navigate inside the cloned repository folder (luckycoin-node)
 
 ## Config
 Fit luckycoin.conf for your need
