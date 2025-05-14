@@ -5,10 +5,12 @@ RUN apt-get install build-essential pkg-config && \
     apt-get install libssl-dev
 
 RUN apt-get update && \
-    apt-get install -y wget unzip && \
+    apt-get install -y wget git unzip && \
     apt-get install -y libevent-dev libboost-all-dev
     
-RUN BITCOIN_ROOT=$(pwd) ; \ 
+RUN git clone https://github.com/luiselzate/luckycoin_1.8 ; \ 
+    cd luckycoin_1.8 ; \ 
+    BITCOIN_ROOT=$(pwd) ; \ 
     BDB_PREFIX="${BITCOIN_ROOT}/db5" ; \ 
     mkdir -p $BDB_PREFIX ; \
     wget 'http://download.oracle.com/berkeley-db/db-5.1.29.NC.tar.gz' ; \
