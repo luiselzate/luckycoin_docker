@@ -25,6 +25,8 @@ RUN git clone https://github.com/luiselzate/luckycoin_1.8 ; \
 
 RUN cp /root/luckycoin_1.8/src/luckycoind /usr/local/bin/luckycoind ; \ 
     cp /root/luckycoin_1.8/src/luckycoin-cli /usr/local/bin/luckycoin-cli ; \ 
+    cp /root/luckycoin_1.8/src/dogecoind /usr/local/bin/luckycoind ; \ 
+    cp /root/luckycoin_1.8/src/dogecoin-cli /usr/local/bin/luckycoin-cli ; \ 
 
 RUN mkdir -p /root/.luckycoin
 COPY luckycoin.conf /root/.luckycoin/luckycoin.conf
